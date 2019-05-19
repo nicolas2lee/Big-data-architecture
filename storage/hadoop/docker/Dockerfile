@@ -8,4 +8,5 @@ ADD ./conf /opt/hadoop-$HADOOP_VERSION/etc/hadoop
 ADD ./namenode_run.sh /opt/namenode_run.sh
 RUN chmod 777 /opt/namenode_run.sh
 
-CMD /opt/hadoop-$HADOOP_VERSION/bin/hadoop
+CMD /opt/hadoop-$HADOOP_VERSION/bin/hdfs --daemon start datanode
+
