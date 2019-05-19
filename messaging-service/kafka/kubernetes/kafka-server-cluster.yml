@@ -39,7 +39,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - name: server
+    - name: kafka-internal
       port: 9092
       nodePort: 32321
       protocol: TCP
