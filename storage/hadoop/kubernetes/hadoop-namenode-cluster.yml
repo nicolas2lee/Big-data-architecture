@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hadoop-namenode-cluster
+spec:
+  selector:
+    matchLabels:
+      app: hadoop-namenode
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hadoop-namenode
+    spec:
+      containers:
+        - name: hadoop-namenode
+          image: nicolas2lee/hadoop
+          command:
+            - bash
+            - "-c"
+            - "/opt/hadoop-3.1.2/bin/hdfs namenode -format && /opt/hadoop-3.1.2/bin/hdfs namenode -fs hdfs://0.0.0.0:9000"
+          ports:
+           - containerPort: 9000
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hadoop-namenode
+  labels:
+    app: hadoop-namenode
+spec:
+  ports:
+    - name: client-port
+      port: 2181
+      protocol: TCP
+  selector:
+    app: hadoop-namenode
+
