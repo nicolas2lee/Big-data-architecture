@@ -31,9 +31,13 @@ metadata:
   labels:
     app: hadoop-namenode
 spec:
+  type: NodePort
   ports:
-    - name: client-port
-      port: 2181
+    - name: hadoop-client-port
+      port: 9000
+      protocol: TCP
+    - name: web-ui-port
+      port: 9870
       protocol: TCP
   selector:
     app: hadoop-namenode

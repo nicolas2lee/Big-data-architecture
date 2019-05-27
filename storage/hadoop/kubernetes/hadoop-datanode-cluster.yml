@@ -21,7 +21,7 @@ spec:
           command:
             - bash
             - "-c"
-            - "/opt/hadoop-3.1.2/bin/hdfs datanode -fs hdfs://hadoop-namenode:9000"
+            - "/opt/hadoop-3.1.2/bin/hdfs datanode -fs hdfs://10.104.31.233:9000"
 ---
 
 apiVersion: v1
@@ -34,6 +34,9 @@ spec:
   ports:
     - name: client-port
       port: 2181
+      protocol: TCP
+    - name: web-ui-port
+      port: 50075
       protocol: TCP
   selector:
     app: hadoop-datanode
