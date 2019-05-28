@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: hadoop-namenode
-          image: nicolas2lee/hadoop
+          image: nicolas2lee/hadoop:hadoop_3_1_2_hive_3_1_1
           command:
             - bash
             - "-c"

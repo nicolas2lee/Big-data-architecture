@@ -2,34 +2,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hadoop-datanode-cluster
+  name: spark-worker-cluster
 spec:
   selector:
     matchLabels:
-      app: hadoop-datanode
+      app: spark-worker
   replicas: 3
   template:
     metadata:
       labels:
-        app: hadoop-datanode
+        app: spark-worker
     spec:
       containers:
-        - name: hadoop-datanode
-          image: nicolas2lee/hadoop
+        - name: spark-worker
+          image: nicolas2lee/spark:2.4.0
           ports:
             - containerPort: 2181
           command:
             - bash
             - "-c"
-            - "/opt/hadoop-3.1.2/bin/hdfs datanode -fs hdfs://10.104.31.233:9000"
+            - "/opt/spark-3.1.2/bin/hdfs worker -fs hdfs://10.104.31.233:9000"
 ---
 #no need to expose to service
 #apiVersion: v1
 #kind: Service
 #metadata:
-#  name: hadoop-datanode
+#  name: spark-worker
 #  labels:
-#    app: hadoop-datanode
+#    app: spark-worker
 #spec:
 #  ports:
 #    - name: client-port
@@ -39,5 +39,5 @@ spec:
 #      port: 50075
 #      protocol: TCP
 #  selector:
-#    app: hadoop-datanode
+#    app: spark-worker
 

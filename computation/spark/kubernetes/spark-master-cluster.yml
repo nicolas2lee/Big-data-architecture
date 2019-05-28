@@ -1,0 +1,43 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spark-master-cluster
+spec:
+  selector:
+    matchLabels:
+      app: spark-master
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spark-master
+    spec:
+      containers:
+        - name: spark-master
+          image: nicolas2lee/spark:2.4.0
+          ports:
+            - containerPort: 7077
+          command:
+            - bash
+            - "-c"
+            - "/opt/spark-2.4.0-bin-hadoop2.7/bin/spark-class org.apache.spark.deploy.master.Master -h spark-master"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spark-master
+  labels:
+    app: spark-master
+spec:
+  type: NodePort
+  ports:
+    - name: spark-client-port
+      port: 7077
+      protocol: TCP
+    - name: web-ui-port
+      port: 6066
+      protocol: TCP
+  selector:
+    app: spark-master
+

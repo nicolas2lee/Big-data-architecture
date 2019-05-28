@@ -10,3 +10,5 @@ ADD ./conf /opt/hadoop-$HADOOP_VERSION/etc/hadoop
 
 CMD /opt/hadoop-$HADOOP_VERSION/bin/hdfs datanode
 
+
+
