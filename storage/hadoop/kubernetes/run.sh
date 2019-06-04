@@ -1,0 +1,1 @@
+kubectl apply -f hadoop-namenode-cluster.yml

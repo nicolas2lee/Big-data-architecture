@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: spark-master
-          image: nicolas2lee/spark:2.4.0
+          image: nicolas2lee/spark:2.4.3
           ports:
             - containerPort: 7077
           command:
