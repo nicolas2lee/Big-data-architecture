@@ -1,0 +1,1 @@
+kubectl delete deployment hadoop-datanode-cluster

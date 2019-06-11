@@ -21,7 +21,7 @@ spec:
           command:
             - bash
             - "-c"
-            - "/opt/hadoop-3.1.2/bin/hdfs datanode -fs hdfs://10.104.31.233:9000"
+            - "/opt/hadoop-3.1.2/bin/hdfs datanode -fs hdfs://10.96.148.72:9000"
 ---
 #no need to expose to service
 #apiVersion: v1
