@@ -1,5 +1,20 @@
 package tao
 
+import akka.Done
+import akka.actor.ActorSystem
+import akka.kafka.ProducerSettings
+import akka.kafka.scaladsl.Producer
+import akka.stream.scaladsl.Source
+import akka.stream.{ActorMaterializer, Attributes, Materializer}
+import akka.util.ccompat.JavaConverters
+import io.confluent.examples.clients.basicavro.Payment
+import io.confluent.kafka.serializers.{AbstractKafkaAvroSerDeConfig, KafkaAvroDeserializerConfig, KafkaAvroSerializer}
+import org.apache.avro.specific.SpecificRecord
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.common.serialization.{Serializer, StringSerializer}
+
+import scala.concurrent.Future
+
 object KafkaProducer {
   def main(args: Array[String]): Unit = {
     implicit val actorSystem: ActorSystem = ActorSystem()

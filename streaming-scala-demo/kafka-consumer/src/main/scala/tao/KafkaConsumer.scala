@@ -1,5 +1,15 @@
 package tao
 
+import akka.actor.ActorSystem
+import akka.kafka.scaladsl.Consumer
+import akka.kafka.{ConsumerSettings, Subscriptions}
+import akka.stream.scaladsl.Sink
+import akka.stream.{ActorMaterializer, Materializer}
+import akka.util.ccompat.JavaConverters
+import io.confluent.kafka.serializers.{AbstractKafkaAvroSerDeConfig, KafkaAvroDeserializer, KafkaAvroDeserializerConfig}
+import org.apache.avro.specific.SpecificRecord
+import org.apache.kafka.common.serialization.{Deserializer, StringDeserializer}
+
 object KafkaConsumer {
   def main(args: Array[String]): Unit = {
     implicit val actorSystem: ActorSystem = ActorSystem()
