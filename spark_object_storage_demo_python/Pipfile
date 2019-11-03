@@ -11,6 +11,11 @@ pyspark = "==2.4.4"
 ibm-cos-sdk = "*"
 requests = "*"
 cos-aspera-mac-10-13-64-py-36 = "*"
+cos-aspera = "*"
+ibm-cos-sdk-s3transfer = "*"
+numpy = "*"
+pandas = "*"
+scikit-learn = "*"
 
 [requires]
 python_version = "3.6.0"

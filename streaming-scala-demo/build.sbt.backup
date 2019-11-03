@@ -1,0 +1,16 @@
+import Dependencies._
+
+ThisBuild / organization := "tao"
+ThisBuild / scalaVersion := "2.12.10"
+ThisBuild / version      := "0.1.0-SNAPSHOT"
+
+val alpakka = "com.lightbend.akka" %% "alpakka" % "1.0-M2"
+val scalaTest = "org.scalatest" %% "scalatest" % "3.0.4" % Test
+
+lazy val root = (project in file("."))
+  .settings(
+    name := "streaming-scala-demo",
+    libraryDependencies ++= Seq(alpakkaKafka, spray)
+  )
+
+
