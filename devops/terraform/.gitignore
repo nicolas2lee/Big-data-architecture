@@ -1,0 +1,5 @@
+env.sh
+
+**/.terraform
+
+**/ibmcloud_api_key.json

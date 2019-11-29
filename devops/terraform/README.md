@@ -1,0 +1,1 @@
+ibmcloud iam api-key-create ibmcloud-nicolas2lee-terraform -d 'ibmcloud nicolas2lee terraform' --file ibmcloud_api_key.json
